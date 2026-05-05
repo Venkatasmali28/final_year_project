@@ -2,9 +2,12 @@ import torch
 from torchvision import transforms
 from PIL import Image
 import numpy as np
+from pathlib import Path
 from .unet import UNet
 
-def get_segmenter_model(weights_path=r'C:\Users\PAVAN MANIKANTA\Downloads\MineSafety\backend\models\saved_models\crack_segmenter.pth'):
+DEFAULT_WEIGHTS_PATH = Path(__file__).resolve().parent / 'saved_models' / 'crack_segmenter.pth'
+
+def get_segmenter_model(weights_path=DEFAULT_WEIGHTS_PATH):
     model = UNet()
     model.load_state_dict(torch.load(weights_path, map_location=torch.device('cpu')))
     model.eval()
