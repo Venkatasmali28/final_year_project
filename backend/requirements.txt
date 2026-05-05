@@ -1,8 +1,9 @@
 flask
 flask-cors
+gunicorn
 torch
 torchvision
 Pillow
-opencv-python
+opencv-python-headless
 scipy
 scikit-learn==1.7.2
